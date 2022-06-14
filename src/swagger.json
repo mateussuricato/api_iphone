@@ -1,0 +1,360 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Iphone",
+    "description": "API para CRUD de iphones e carrinho de compras",
+    "termsOfService": "",
+    "contact": {
+      "email": "mateeusof@hotmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3004",
+      "description": "API de teste"
+    },
+    {
+      "url": "https://api-elgeladon.herokuapp.com/paletas",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/iphone": {
+      "get": {
+        "summary": "Lista de todaos os iphones",
+        "description": "Rota responsável por listar todas os iphones",
+        "tags": ["Iphones"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Iphones"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/iphone/{id}": {
+      "get": {
+        "summary": "Busca uma iphone pelo ID",
+        "description": "Rota responsável por buscar uma iphone pelo ID",
+        "tags": ["Iphones"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da iphone para a busca",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Iphones"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "summary": "Cadastrar um iphone",
+        "description": "Rota responsável por cadastrar um iphone",
+        "tags": ["Iphones"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Iphones"
+              },
+              "examples": {
+                "Paletas": {
+                  "value": {
+                    "titulo": "Iphone 5",
+                    "lancamento": 2012,
+                    "polegadas": "4.0",
+                    "resolucao": "640 x 1136 pixels",
+                    "camera": "8 MP",
+                    "selfcamera": "1.2 MP",
+                    "video": "1080p@30fps",
+                    "cpu": "Dual-core 1.0 GHz Cortex-A9",
+                    "gpu": "PowerVR SGX543MP2",
+                    "ram": "1024 mb",
+                    "os": "iOS 5, upgradable to iOS 9.3.6",
+                    "preco": 1000,
+                    "img": "../assets/images/iphone5.png"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Iphones"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update/{id}": {
+      "put": {
+        "summary": "Editar uma iphone pelo ID",
+        "description": "Rota responsável por editar um iphone pelo ID",
+        "tags": ["Iphones"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do iphone para a busca",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Iphones"
+              },
+              "examples": {
+                "Paletas": {
+                  "value": {
+                    "titulo": "Iphone 4S",
+                    "lancamento": 2011,
+                    "polegadas": "3.5",
+                    "resolucao": "640 x 960 pixels",
+                    "camera": "8 MP",
+                    "selfcamera": "VGA",
+                    "video": "1080p@30fps",
+                    "cpu": "Dual-core 1.0 GHz Cortex-A9",
+                    "gpu": "PowerVR SGX543MP2",
+                    "ram": "512 mb",
+                    "os": "iOS 5, upgradable to iOS 9.3.6",
+                    "preco": 1000,
+                    "img": "../assets/images/iphone4s.png"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Iphones"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "delete": {
+        "summary": "Apagar um iphone pelo ID",
+        "description": "Rota responsável por apagar um iphone pelo ID",
+        "tags": ["Iphones"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do iphone para deleção",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/all-carrinho": {
+      "get": {
+        "summary": "Lista de todos os itens do carrinho",
+        "description": "Rota responsável por listar todos os itens do carrinho",
+        "tags": ["Carrinho"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Carrinho"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create-carrinho": {
+      "post": {
+        "summary": "Cadastrar vários itens no carrinho",
+        "description": "Rota responsável por cadastrar vários itens no carrinho",
+        "tags": ["Carrinho"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Carrinho"
+              },
+              "examples": {
+                "Carrinho": {
+                  "value": [
+                    {
+                      "paletaId": "624230fdcd38269205c82197",
+                      "quantidade": 5
+                    },
+                    {
+                      "paletaId": "62423c1e618f4a4738a5ee75",
+                      "quantidade": 2
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Carrinho"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/finish-carrinho": {
+      "delete": {
+        "summary": "Apagar todos os itens do carrinho",
+        "description": "Rota responsável por apagar todos os itens do carrinho",
+        "tags": ["Carrinho"],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Iphones": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "type": "string"
+          },
+          "lancamento": {
+            "type": "number"
+          },
+          "polegadas": {
+            "type": "string"
+          },
+          "resolucao": {
+            "type": "string"
+          },
+          "camera": {
+            "type": "string"
+          },
+          "selfcamera": {
+            "type": "string"
+          },
+          "video": {
+            "type": "string"
+          },
+          "cpu": {
+            "type": "string"
+          },
+          "gpu": {
+            "type": "string"
+          },
+          "ram": {
+            "type": "string"
+          },
+          "os": {
+            "type": "string"
+          },
+          "preco": {
+            "type": "number"
+          },
+          "img": {
+            "type": "string"
+          }
+        }
+      },
+      "Carrinho": {
+        "type": "object",
+        "properties": {
+          "paletaId": {
+            "type": "string"
+          },
+          "quantidade": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

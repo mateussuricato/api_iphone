@@ -31,7 +31,7 @@ export const routes = express.Router();
 routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(json));
 routes.get('/iphone', findAll);
 routes.get('/iphone/:id', validId, findById);
-routes.post('/create', createIphoneController);
+routes.post('/create', validObjectBody, createIphoneController);
 routes.put('/update/:id', validId, validObjectBody, updateIphoneController);
 routes.delete('/delete/:id', validId, deleteIphoneController);
 

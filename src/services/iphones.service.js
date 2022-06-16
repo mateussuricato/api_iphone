@@ -1,23 +1,23 @@
 import { iphones } from '../models/iphones.js';
 
 export const findAllService = async () => {
-  const paleta = await iphones.find();
-  return paleta;
+  const iphone = await iphones.find();
+  return iphone;
 };
 
 export const findByIdService = async (id) => {
-  const paleta = await iphones.findById(id);
-  return paleta;
+  const iphone = await iphones.findById(id);
+  return iphone;
 };
 
 export const createIphoneService = async (newPaleta) => {
-  const paletaCreated = await iphones.create(newPaleta);
-  return paletaCreated;
+  const iphoneCreated = await iphones.create(newPaleta);
+  return iphoneCreated;
 };
 
 export const updateIphoneService = async (id, paletaEdited) => {
-  const paletaUpdate = await iphones.findByIdAndUpdate(id, paletaEdited);
-  return paletaUpdate;
+  const iphoneUpdate = await iphones.findByIdAndUpdate(id, paletaEdited);
+  return iphoneUpdate;
 };
 
 export const deleteIphoneService = async (id) => {

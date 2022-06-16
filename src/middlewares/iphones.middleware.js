@@ -11,20 +11,7 @@ export const validId = (req, res, next) => {
 export const validObjectBody = (req, res, next) => {
   const iphone = req.body;
   if (
-    !iphone ||
-    !iphone.titulo ||
-    !iphone.lacamento ||
-    !iphone.polegadas ||
-    !iphone.resolucao ||
-    !iphone.camera ||
-    !iphone.selfcamera ||
-    !iphone.video ||
-    !iphone.cpu ||
-    !iphone.gpu ||
-    !iphone.ram ||
-    !iphone.os ||
-    !iphone.preco ||
-    !iphone.img
+    !iphone
   ) {
     res.status(401).send({
       message: 'Envie todos os campos da paleta',

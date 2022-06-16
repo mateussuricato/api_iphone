@@ -26,7 +26,7 @@ export const validObjectBody = (req, res, next) => {
     !iphone.preco ||
     !iphone.img
   ) {
-    res.status(400).send({
+    res.status(401).send({
       message: 'Envie todos os campos da paleta',
     });
   }

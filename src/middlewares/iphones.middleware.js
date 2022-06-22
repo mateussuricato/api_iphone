@@ -23,7 +23,7 @@ export const validObjectBody = (req, res, next) => {
 export const validObjectBodyCarrinho = (req, res, next) => {
   const carrinho = req.body;
   carrinho.forEach((item) => {
-    if (!item || !item.quantidade || !item.iphoneId) {
+    if (!item) {
       return res
         .status(404)
         .send({ message: 'Envie todos os caompos do iphone!' });

@@ -1,5 +1,5 @@
 # api_iphone
- api com banco de dados no mongoAtlas. CRUD
+ api com banco de dados no mongoAtlas. CRUD.
  
 Esse projeto foi realizado para o curso da Blue EdTech módulo III, projeto de Backend desenvolvido com nodejs e express.
 

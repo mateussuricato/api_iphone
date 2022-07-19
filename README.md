@@ -5,7 +5,7 @@ Esse projeto foi realizado para o curso da Blue EdTech módulo III, projeto de B
 
 Clique na imagem abaixo para acessar a documentação do projeto:
 
-<a href="https://projeto-react-loja-iphone.vercel.app/" target="_blank"><img style="width:10%" src="https://www.4x-treme.com/wp-content/uploads/2022/01/7658037-removebg-preview.png" alt="ícone pokedex"></a>
+<a href="https://apiiphone-production.up.railway.app/api-docs/" target="_blank"><img style="width:10%" src="https://www.4x-treme.com/wp-content/uploads/2022/01/7658037-removebg-preview.png" alt="ícone pokedex"></a>
 
 ## Stacks
 Ferramentas usadas:
